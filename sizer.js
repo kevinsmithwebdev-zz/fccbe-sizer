@@ -14,15 +14,7 @@ var app = express();
 
 // middleware
 
-app.use(express.compress());
-
 app.use(express.static(__dirname + '/public'));
-
-app.use(express.bodyParser());
-
-// app.get('/', function(req, res, next) {
-//   res.sendFile(__dirname + "/index.html");
-// });
 
 app.post('/upload', upload.single('file'), function(req, res) {
   return res.json({ size: req.file.size } );
